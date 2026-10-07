@@ -684,7 +684,7 @@ pb.addEventListener('click',goPrev);
 nb.addEventListener('click',goNext);
 var sb=document.getElementById('spreadBtn');
 if(sb){sb.addEventListener('click',function(){spread=!spread;sb.classList.toggle('active',spread);render()});}
-var rsz;window.addEventListener('resize',function(){clearTimeout(rsz);rsz=setTimeout(render,150)});
+var rsz,lw=window.innerWidth;window.addEventListener('resize',function(){if(window.innerWidth===lw)return;lw=window.innerWidth;clearTimeout(rsz);rsz=setTimeout(render,150)});
 
 pn.addEventListener('click',function(){
   if(pn.querySelector('input'))return;
